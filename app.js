@@ -14,7 +14,7 @@ let totalImages = 0
 let photosArray = []
 
 // API
-const count = 30
+const count = 10
 const apiKey = 'b6-ERUzcZwYSUVf7wAmCb_G5KvUGD4Qkz8LLWXIusRc'
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`
 
@@ -39,16 +39,6 @@ listBtn.addEventListener('click', function listView() {
   imageContainer.classList.remove('grid')
 })
 
-// const images = document.querySelectorAll('img')
-// images.forEach((image) => {
-//   image.addEventListener('click', (e) => {
-//     lightbox.classList.add('active')
-//     const img = document.createElement('img')
-//     img.src = image.src
-//     lightbox.appendChild(img)
-//   })
-// })
-
 //display
 function displayPhotos() {
   imagesLoaded = 0
@@ -72,6 +62,23 @@ function displayPhotos() {
       }
 
       lightbox.appendChild(img)
+
+      const picEL = document.createElement('div')
+
+      photosArray.forEach((e) => {
+        if (e.likes) {
+          picEL.innerHTML = ` <div class="pic_info"
+          <span>DESCRIPTION:${e.alt_description}</span>
+          <span>LIKES:${e.likes}</span>
+          <span>DOWNLOADS: ${e.downloads}</span>
+          <span>INSTAGRAM:${e.user.instagram_username}</span>      
+          <span><a>PROFILE: ${e.links.self}</a></span>
+          <span>LINK: ${e.links.html}</span>
+          <span>USERNAME: ${e.user.username}</span>
+        </div>`
+          lightbox.appendChild(picEL)
+        }
+      })
 
       // img.appendChild('lightbox')
     })

@@ -82,10 +82,22 @@ button {
 }
 
 #lightbox img {
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   padding: 4px;
   border: 5px solid white;
+}
+
+.pic_info {
+  display: flex;
+  flex-direction: column;
+  color: #fafafa;
+}
+
+#lightbox span {
+  display: flex;
+  flex-direction: column;
+  color: #fafafa;
 }
 
 #lightbox.active {
@@ -94,8 +106,15 @@ button {
   align-items: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1000px) {
   h1 {
     font-size: 20px;
+  }
+
+  #lightbox img {
+    width: 500px;
+    height: 500px;
+    padding: 4px;
+    border: 5px solid white;
   }
 }
