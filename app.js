@@ -45,8 +45,6 @@ function displayPhotos() {
   totalImages = photosArray.length
   photosArray.forEach((photo) => {
     const item = document.createElement('div')
-    // item.setAttribute('href', photo.links.html)
-    // item.setAttribute('target', '_blank')
 
     const img = document.createElement('img')
     img.setAttribute('src', photo.urls.regular)
@@ -103,7 +101,9 @@ async function getPhotos() {
     photosArray = await response.json()
     console.log(photosArray)
     displayPhotos()
-  } catch (error) {}
+  } catch (error) {
+    console.error('Error in getPhotos()')
+  }
 }
 
 window.addEventListener('scroll', () => {
